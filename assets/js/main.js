@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const [id, langPath] of Object.entries(flags)) {
       const el = document.getElementById(id);
       if (el) {
+         console.log(`base: ${base}, path: ${langPath}, page: ${currentPage}`);
         el.href = base + langPath + currentPage;
       }
     }
