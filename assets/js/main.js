@@ -56,6 +56,7 @@ langButton.addEventListener("click", function () {
     });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/'; 
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
     const flags = {
@@ -66,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
       "flag-us": "/us/"
     };
 
-    for (const [id, path] of Object.entries(flags)) {
+    for (const [id, langPath] of Object.entries(flags)) {
       const el = document.getElementById(id);
       if (el) {
-        el.href = path + currentPage;
+        el.href = base + langPath + currentPage;
       }
     }
   });
