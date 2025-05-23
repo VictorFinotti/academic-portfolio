@@ -460,6 +460,10 @@ main {
         width: 100%;
         flex:1;
     }
+    .paragraph__head,
+    .paragraph__content {
+        margin-left: 0;
+    }
 
     .toggle__menu, 
     .close__menu{
