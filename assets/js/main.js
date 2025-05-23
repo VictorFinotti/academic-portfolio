@@ -79,11 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/';
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    console.log(`currPage : ${currentPage}`)
 
     // Detect language from path (e.g. /fr/, /es/)
     const pathParts = window.location.pathname.split('/');
     const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
     const langPath = lang ? `/${lang}/` : '/';
+    console.log(`langPath : ${longPath}`)
 
     // Normalize base to ensure it ends with a single slash
     const normalizedBase = base.replace(/\/+$/, '') + '/';
