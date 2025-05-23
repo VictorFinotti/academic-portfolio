@@ -414,7 +414,7 @@ main {
 
 @media screen and (max-width : 992px) {
     .menu{
-        background-color: white;
+        
         justify-content: start;
         flex-wrap: wrap;
     }
@@ -422,7 +422,7 @@ main {
 
 @media screen and (max-width: 768px) {
     .menu {
-        background-color: green;
+        
         flex-direction:column;
         position: static;
         box-shadow: none;
@@ -449,6 +449,9 @@ main {
         display: block;
         transition: 0.3s;
 
+    }
+    .sidebar {
+        display: none;
     }
 
     .toggle__menu, 
