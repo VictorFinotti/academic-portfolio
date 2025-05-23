@@ -75,3 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/';
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    // Define your language folder logic here
+    const lang = base.match(/\/(fr|es|it|us)\//)?.[1] || '';
+    const langPath = lang ? `/${lang}/` : '/';
+
+    // Select all <a> tags in .nav__link and inside .menu__link
+    const links = document.querySelectorAll('.nav__link, .menu__link a');
+
+    links.forEach(link => {
+        const originalHref = link.getAttribute('href');
+        if (originalHref && originalHref.startsWith('./')) {
+            const filename = originalHref.replace('./', '');
+            const newHref = base + langPath + filename;
+            console.log(`Updated link: ${originalHref} ➜ ${newHref}`);
+            link.setAttribute('href', newHref);
+        }
+    });
+});
