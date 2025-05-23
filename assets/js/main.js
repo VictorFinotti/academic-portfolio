@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathParts = window.location.pathname.split('/');
     const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
     const langPath = lang ? `/${lang}/` : '/';
-    console.log(`langPath : ${longPath}`)
+    console.log(`langPath : ${langPath}`)
 
     // Normalize base to ensure it ends with a single slash
     const normalizedBase = base.replace(/\/+$/, '') + '/';
