@@ -453,7 +453,11 @@ main {
     .sidebar {
         display: none;
     }
+    .layout {
+        flex-direction: column;
+    }
     main {
+        width: 100%;
         flex:1;
     }
 
