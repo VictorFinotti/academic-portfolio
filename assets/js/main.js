@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // const normalizedBase = base.replace(/\/+$/, '') + '';
 
     // Find all nav and menu links
-    const links = document.querySelectorAll('.nav__link, .menu__link a');
+    const links = document.querySelectorAll('.nav__link, .menu__link a, .owner');
 
     links.forEach(link => {
         const href = link.getAttribute('href');
