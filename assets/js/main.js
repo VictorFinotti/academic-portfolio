@@ -76,24 +76,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/';
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-    // Define your language folder logic here
-    const lang = base.match(/\/(fr|es|it|us)\//)?.[1] || '';
+    // Detect language from path (e.g. /fr/, /es/)
+    const pathParts = window.location.pathname.split('/');
+    const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
     const langPath = lang ? `/${lang}/` : '/';
 
-    // Select all <a> tags in .nav__link and inside .menu__link
+    // Normalize base to ensure it ends with a single slash
+    const normalizedBase = base.replace(/\/+$/, '') + '/';
+
+    // Find all nav and menu links
     const links = document.querySelectorAll('.nav__link, .menu__link a');
 
     links.forEach(link => {
-        const originalHref = link.getAttribute('href');
-        if (originalHref && originalHref.startsWith('./')) {
-            const filename = originalHref.replace('./', '');
-            const newHref = base + langPath + filename;
-            console.log(`Updated link: ${originalHref} ➜ ${newHref}`);
+        const href = link.getAttribute('href');
+
+        // Only modify local ./ links
+        if (href && href.startsWith('./')) {
+            const filename = href.replace('./', '');
+            const newHref = normalizedBase + langPath.replace(/^\/+/, '') + filename;
             link.setAttribute('href', newHref);
+            console.log(`Updated: ${href} → ${newHref}`);
         }
     });
 });
