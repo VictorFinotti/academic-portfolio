@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Detect language from path (e.g. /fr/, /es/)
     const pathParts = window.location.pathname.split('/');
+    console.log(`pathParts : ${pathParts}`)
     const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
     const langPath = lang ? `/${lang}/` : '/';
     console.log(`langPath : ${langPath}`)
