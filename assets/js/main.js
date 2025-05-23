@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Only modify local ./ links
         if (href && href.startsWith('./')) {
             const filename = href.replace('./', '');
-            const newHref = normalizedBase + langPath.replace(/^\/+/, '') + filename;
+            const newHref = base + langPath.replace(/^\/+/, '') + filename;
             link.setAttribute('href', newHref);
             console.log(`Updated: ${href} → ${newHref}`);
         }
