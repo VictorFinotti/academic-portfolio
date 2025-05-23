@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
     const flags = {
-      "flag-br": "/",
-      "flag-fr": "/fr/",
-      "flag-es": "/es/",
-      "flag-it": "/it/",
-      "flag-us": "/us/"
+      "flag-br": "",
+      "flag-fr": "fr/",
+      "flag-es": "es/",
+      "flag-it": "it/",
+      "flag-us": "us/"
     };
 
     for (const [id, langPath] of Object.entries(flags)) {
