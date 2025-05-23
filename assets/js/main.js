@@ -76,34 +76,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/';
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    console.log(`currPage : ${currentPage}`)
+// document.addEventListener("DOMContentLoaded", function () {
+//     const base = document.querySelector('base')?.getAttribute('href') || '/academic-portfolio/';
+//     const currentPage = window.location.pathname.split("/").pop() || "index.html";
+//     console.log(`currPage : ${currentPage}`)
 
-    // Detect language from path (e.g. /fr/, /es/)
-    const pathParts = window.location.pathname.split('/');
-    console.log(`pathParts : ${pathParts}`)
-    const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
-    console.log(`lang: ${lang}`)
-    const langPath = lang ? `/${lang}/` : '/';
-    console.log(`langPath : ${langPath}`)
+//     // Detect language from path (e.g. /fr/, /es/)
+//     const pathParts = window.location.pathname.split('/');
+//     console.log(`pathParts : ${pathParts}`)
+//     const lang = ['fr', 'es', 'it', 'us'].includes(pathParts[1]) ? pathParts[1] : '';
+//     console.log(`lang: ${lang}`)
+//     const langPath = lang ? `/${lang}/` : '/';
+//     console.log(`langPath : ${langPath}`)
 
-    // Normalize base to ensure it ends with a single slash
-    const normalizedBase = base.replace(/\/+$/, '') + '/';
+//     // Normalize base to ensure it ends with a single slash
+//     const normalizedBase = base.replace(/\/+$/, '') + '/';
 
-    // Find all nav and menu links
-    const links = document.querySelectorAll('.nav__link, .menu__link a');
+//     // Find all nav and menu links
+//     const links = document.querySelectorAll('.nav__link, .menu__link a');
 
-    links.forEach(link => {
-        const href = link.getAttribute('href');
+//     links.forEach(link => {
+//         const href = link.getAttribute('href');
 
-        // Only modify local ./ links
-        if (href && href.startsWith('./')) {
-            const filename = href.replace('./', '');
-            const newHref = normalizedBase + langPath.replace(/^\/+/, '') + filename;
-            link.setAttribute('href', newHref);
-            console.log(`Updated: ${href} → ${newHref}`);
-        }
-    });
-});
+//         // Only modify local ./ links
+//         if (href && href.startsWith('./')) {
+//             const filename = href.replace('./', '');
+//             const newHref = normalizedBase + langPath.replace(/^\/+/, '') + filename;
+//             link.setAttribute('href', newHref);
+//             console.log(`Updated: ${href} → ${newHref}`);
+//         }
+//     });
+// });
