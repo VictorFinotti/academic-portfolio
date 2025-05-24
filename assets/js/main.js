@@ -107,3 +107,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const links = [
+  { text: "CNPq", url: "http://lattes.cnpq.br/7867487466217054" },
+  { text: "Email", url: "mailto:stefano.nardulli@ufabc.edu.br" },
+  { text: "GitHub", url: "https://github.com" },
+  { text: "Google Scholar", url: "https://scholar.google.com.br/citations?user=vmMlUB8AAAAJ" },
+  { text: "ORCID", url: "https://orcid.org/0000-0001-9690-1679" }
+];
+
+let currentIndex = 0;
+
+function updateLink() {
+  const current = links[currentIndex];
+  const linkItem = document.querySelector(".mini-item");
+  linkItem.textContent = current.text;
+  linkItem.href = current.url;
+}
+
+function showPreviousLink() {
+  currentIndex = (currentIndex - 1 + links.length) % links.length;
+  updateLink();
+}
+
+function showNextLink() {
+  currentIndex = (currentIndex + 1) % links.length;
+  updateLink();
+}
+
+function setupNavigation() {
+  document.querySelector(".arrow.left").addEventListener("click", showPreviousLink);
+  document.querySelector(".arrow.right").addEventListener("click", showNextLink);
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  updateLink();
+  setupNavigation();
+});

@@ -408,8 +408,60 @@ main {
     font-size: 30px;
     border-radius: 15px;
 }
-  
 
+
+.hidden_links {
+    margin-top: 10px;
+    display: none;
+    align-items: center;
+}
+.small_profile {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%; /* optional: makes the container circular */
+}
+
+.small_profile_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the image covers the container without distortion */
+  display: block;
+}
+
+.mini_menu {
+    display: flex;
+    align-items: center;
+    gap: 20px
+}
+
+.mini-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* background-color: #f9f9f9; */
+  padding: 8px 12px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  user-select: none;
+}
+.mini-item {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #007bff;
+}
 
 
 @media screen and (max-width : 992px) {
@@ -475,7 +527,6 @@ main {
     }
     .close__menu {
         margin: 1rem 1rem 1rem auto;
-        background-color: green;
         border-radius: 50%;
         width: 32px;
         height: 32px;
@@ -491,5 +542,9 @@ main {
 
     .show__menu {
         left: 0;
+    }
+
+    .hidden_links {
+        display: flex;
     }
 }
